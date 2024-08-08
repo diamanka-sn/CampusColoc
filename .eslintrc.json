@@ -1,0 +1,46 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+    ],
+    "rules": {
+        "no-console": "error",
+        "no-unused-vars": "error",
+        "prettier/prettier": "error",
+        "prefer-template": "error",
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": "variable",
+                "format": [
+                    "camelCase"
+                ]
+            },
+            {
+                "selector": "function",
+                "format": [
+                    "camelCase"
+                ]
+            },
+            {
+                "selector": "enumMember",
+                "format": [
+                    "UPPER_CASE"
+                ]
+            },
+            {
+                "selector": "constant",
+                "format": [
+                    "UPPER_CASE"
+                ]
+            }
+        ]
+    }
+}
