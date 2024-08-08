@@ -15,6 +15,8 @@ CampusColoc vise à simplifier et sécuriser la recherche de logements en coloca
 ![ESLint](https://img.shields.io/badge/eslint-20232A?style=for-the-badge&logo=eslint&logoColor=purple)
 ![Tailwind CSS](https://img.shields.io/badge/tailwindcss-20232A?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4)
 ![Angular Material](https://img.shields.io/badge/angular_material-20232A?style=for-the-badge&logo=angular&logoColor=DD0031)
+![CircleCI](https://img.shields.io/badge/circleci-20232A?style=for-the-badge&logo=circleci&logoColor=343434)
+![Docker](https://img.shields.io/badge/docker-20232A?style=for-the-badge&logo=docker&logoColor=2496ED)
 
 ## Documentation technique
 Bientot disponible.
