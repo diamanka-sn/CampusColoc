@@ -1,10 +1,12 @@
-import { Schema, model, Document } from 'mongoose';
+import { Schema, model, Document, ObjectId } from 'mongoose';
 
 export interface IUser extends Document {
-  firstName: string;
-  lastName: string;
+  _id: ObjectId;
+  firstname: string;
+  lastname: string;
   email: string;
   phone: string;
+  location:string;
   password: string;
   imageUrl: string;
   verified: boolean;
@@ -14,16 +16,22 @@ export interface IUser extends Document {
 }
 
 const UserSchema: Schema = new Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
+  firstname: { type: String, required: true },
+  lastname: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   phone: { type: String, required: true, unique: true },
+  location: { type: String, required: true},
   password: { type: String, required: true },
-  imageUrl: { type: String, required: true },
+  imageUrl: { type: String, required: false },
   verified: { type: Boolean, default: false },
   documents: { type: [String], default: [] },
-}, {
-  timestamps: true, 
+}, { timestamps: true });
+
+UserSchema.set('toJSON', {
+  transform: (doc, ret) => {
+    delete ret.password;
+    return ret;
+  }
 });
 
 export default model<IUser>('User', UserSchema);

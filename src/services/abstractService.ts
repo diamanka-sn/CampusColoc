@@ -1,4 +1,4 @@
-import { Model, Document, FilterQuery, UpdateQuery } from 'mongoose';
+import { Model, Document, FilterQuery,  } from 'mongoose';
 
 export abstract class AbstractService<T extends Document>{
     protected model: Model<T>;
@@ -48,8 +48,7 @@ export abstract class AbstractService<T extends Document>{
         return this.model.findByIdAndDelete(id).exec();
     }
 
-    async update(id: string, data: UpdateQuery<T>): Promise<T | null> {
-        await this.model.findByIdAndUpdate(id, data).exec();
-        return this.model.findById(id).exec();
+    async update(_id: string, data: Partial<T>): Promise<T | null> {
+      return this.model.findByIdAndUpdate(_id, data, { new: true }).exec();
     }
 }

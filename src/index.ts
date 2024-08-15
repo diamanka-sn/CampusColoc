@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import http from 'http';
 import connectToDB from "./data/database";
+import { UserRoutes } from "./routers/userRoute";
 
 const app = express();
 
@@ -16,7 +17,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization,multipart/form-data"
+    "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization, multipart/form-data"
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -28,6 +29,9 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const userRoutes = new UserRoutes();
+
+app.use("/api/users", userRoutes.router);
 const startServer = async () => {
   try {
       await connectToDB();
