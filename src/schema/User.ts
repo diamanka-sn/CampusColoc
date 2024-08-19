@@ -11,6 +11,7 @@ export interface IUser extends Document {
   imageUrl: string;
   verified: boolean;
   documents: string[];
+  // role: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -25,6 +26,7 @@ const UserSchema: Schema = new Schema({
   imageUrl: { type: String, required: false },
   verified: { type: Boolean, default: false },
   documents: { type: [String], default: [] },
+  // role: { type: String, default: 'user' },
 }, { timestamps: true });
 
 UserSchema.set('toJSON', {

@@ -8,7 +8,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: 'campus_coloc_users',
-    allowedFormats: ['jpg', 'png', 'jpeg'],
+    allowedFormats: ['jpg', 'png', 'jpeg', 'pdf'],
     public_id: (req: Request, file: { originalname: any; }) => `${Date.now()}`,
   },
 } as any);
